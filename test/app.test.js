@@ -42,6 +42,12 @@ describe('penguins', () => {
                 expect(res.body).toEqual({ deleted: true });
             });   
     });
+    it('error', () => {
+        return request(app).get('/cookie')
+            .then(res => {
+                expect(res.body).toEqual(404);
+            });   
+    });
 });
 
 
