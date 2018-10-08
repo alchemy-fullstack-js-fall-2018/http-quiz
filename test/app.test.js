@@ -36,12 +36,10 @@ describe('penguins', () => {
                 });
             });   
     });
-    it('returns a simple format penguin', () => {
+    it('delete', () => {
         return request(app).get('/mistake')
             .then(res => {
-                expect(res.body).toEqual({ 
-                    name: 'bernice'
-                });
+                expect(res.body).toEqual({ deleted: true });
             });   
     });
 });
