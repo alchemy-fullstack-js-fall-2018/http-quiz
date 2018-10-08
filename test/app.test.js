@@ -17,7 +17,7 @@ it('gets simple penguin', () => {
         });
 });
 
-it.skip('gets full penguin', () => {
+it('gets full penguin', () => {
     return request(app).get('/api/penguin/king?format=full')
         .then(results => {
             expect(results).toEqual({ 
@@ -28,7 +28,7 @@ it.skip('gets full penguin', () => {
         });
 });
 
-it.skip('deletes as described', () => {
+it('deletes as described', () => {
     return request(app).delete('/mistake')
         .then(results => {
             expect(results).toEqual({ deleted: true });
