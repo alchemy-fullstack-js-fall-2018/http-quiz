@@ -1,8 +1,16 @@
-const request = require("supertest");
-const app = require("../lib/app");
+const request = require('supertest');
+const app = require('../lib/app');
 
-describe("Pirates API", () => {
-  it("write a test...", () => {
-    expect(true);
-  });
+it('gets two penguins', () => {
+    return request(app).get('/penguins')
+        .then(results => {
+            expect(results).toEqual(['bernice', 'bernard']);
+        });
+});
+
+it('gets two penguins', () => {
+    return request(app).get('/penguins')
+        .then(results => {
+            expect(results).toEqual(['bernice', 'bernard']);
+        });
 });
