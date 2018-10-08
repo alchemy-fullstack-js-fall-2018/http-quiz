@@ -5,8 +5,8 @@ describe('Penguins API', () => {
     it('should respond with an array of penguins with GET', () => {
         return request(app).get('/api/penguins')
             .then(res => {
-                console.log(res);
-                expect(res.text).toEqual(['bernice', 'bernard']);
+                console.log(res.text);
+                expect(res.text).toEqual('something');
             });  
     });
 
