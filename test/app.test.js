@@ -48,6 +48,18 @@ describe('Penguins API', () => {
   });
 
 
+  describe('should 404 everything else', () => {
 
+    it('404s on bad route', () => {
+      return request(app).get('/money').then(res => {
+        expect(res.statusCode).toEqual(404);
+      });
+    })
+    it('404s on bad method', () => {
+      return request(app).delete('/penguins').then(res => {
+        expect(res.statusCode).toEqual(404);
+      });
+    })
+  });
 
 });
