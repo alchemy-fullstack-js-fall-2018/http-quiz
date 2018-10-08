@@ -10,7 +10,7 @@ describe('Pirates API', () => {
     });
 
     it('gets a single penguin with format=full', () => {
-        return request(app).get('//api/penguin/king?format=full')
+        return request(app).get('/api/penguins/king?format=full')
             .then(res => {
                 const expected = { 
                     name: 'bernice',
@@ -25,6 +25,13 @@ describe('Pirates API', () => {
         return request(app).delete('/mistake')
             .then(res => {
                 expect(res.body).toEqual({ deleted: true });
+            });
+    });
+
+    it('responds with 404 to not found', () => {
+        return request(app).get('/yabadabadoo')
+            .then(res => {
+                expect(res.status).toEqual(404);
             });
     });
 });
