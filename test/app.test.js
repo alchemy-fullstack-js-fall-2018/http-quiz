@@ -23,16 +23,6 @@ describe('penguins', () => {
             .then(res => {
                 expect(res.body).toEqual({ 
                     name: 'bernice',
-                    description: 'What a penguin!',
-                    age: 7
-                });
-            });   
-    });
-    it('returns a simple format penguin', () => {
-        return request(app).get('/mistake')
-            .then(res => {
-                expect(res.body).toEqual({ 
-                    name: 'bernice'
                 });
             });   
     });
