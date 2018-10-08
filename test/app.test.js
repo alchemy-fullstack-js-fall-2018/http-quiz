@@ -11,18 +11,10 @@ describe("Pirates API", () => {
             return request(app).get(`/api/penguins/${id}`);
         })
         .then(getResponse => {
-            const pet = JSON.parse(getResponse.text);
-            expect(pet.id).toEqual(expect.any(String));
-            expect(pet.name).toEqual('porky');
-            expect(pet.petType).toEqual('little piglet');
+            const penguin = JSON.parse(getResponse.text);
+            expect(penguin.id).toEqual(expect.any(String));
+            expect(penguin.name).toEqual('bernice');
+            expect(penguin.petType).toEqual('bernard);
             expect(true);
         });
-});
-['bernice', 'bernard']
-  it("write a test...", () => {
-    
-  });
-
-  'bernice', 'bernard']
-  /api/penguins
 });
