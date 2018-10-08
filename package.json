@@ -18,5 +18,17 @@
     "jest": "^23.6.0",
     "nodemon": "^1.18.4",
     "supertest": "^3.3.0"
-  }
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/R-i-t-a/http-quiz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/R-i-t-a/http-quiz/issues"
+  },
+  "homepage": "https://github.com/R-i-t-a/http-quiz#readme"
 }
