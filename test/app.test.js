@@ -35,3 +35,10 @@ it('deletes as described', () => {
         });
 });
 
+it('errors when path not recognized', () => {
+    return request(app).delete('/doesNotExist')
+        .then(results => {
+            expect(results.statusCode).toEqual(404);
+        });
+});
+
