@@ -15,8 +15,21 @@ describe('Penguins API', () => {
         return request(app)
             .get('/api/penguins')
             .then(res => {
-                JSON.parse(res.text);
                 expect(res.text).toEqual(['bernice', 'bernard']);
             });
     });
+
+    it('gets a single penguin with query format=full', () => {
+        return request(app)
+            .get('/api/penguins/king?format=full')
+            .then(body => {
+                const expected = { 
+                    name: 'bernice',
+                    description: 'What a penguin!',
+                    age: 7
+                };
+                expect(body).toEqual(expected);
+            });
+    });
+
 });
