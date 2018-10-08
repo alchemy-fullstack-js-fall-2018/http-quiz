@@ -40,7 +40,14 @@ describe('Penguins API', () => {
     });
   });
 
-  
+  it('should send back a deleted true message', () => {
+    return request(app).delete('/mistake').then(res => {
+      expect(res.text).toEqual(JSON.stringify({ deleted: true }));
+    });
+
+  });
+
+
 
 
 });
