@@ -3,7 +3,21 @@ const app = require('../lib/app');
 
 describe('Pirates API', () => {
 
-    it('gets penguin', () => {
+  it('create penguin', () => {
+    return request(app).post('/api/penguins')
+        .send({ 
+          name: 'bernice',
+          description: 'What a penguin!',
+          age: 7
+        .then(res => {
+            const json = JSON.parse(res.text);
+            expect(json.name).toEqual('bernice');
+            expect(json.description).toEqual('What a penguin!');
+            expect(json.age).toEqual(7);
+        })
+});
+
+    it('gets the penguin name', () => {
         return request(app).post('/api/penguins')
             .send(['bernice', 'bernard'])
             .then(createResponse => {   
@@ -14,18 +28,18 @@ describe('Pirates API', () => {
                 const penguin = JSON.parse(getResponse.text);
                 expect(true).toEqual(expect.any(String));
                 expect(penguin.name).toEqual('bernice');
-                expect(penguin.petType).toEqual('bernard');
-                expect(true);
+                expect(penguin.description).toEqual('What a penguin!');
+                expect(penguin.age).toEqual(7);
             });
     });
 
-    it('penguin info', () => {
+    it('returns all of penguin info', () => {
         return request(app).post('/api/penguin/king?format=<simple|full>')
             .send({ 
                 name: 'bernice',
                 description: 'What a penguin!',
                 age: 7
-              });
+              })
             .then(createResponse => {   
                 const { id } = JSON.parse(createResponse.text);
                 return request(app).get(`/api/penguin/king?format=<simple|full>${id}`);
@@ -39,15 +53,3 @@ describe('Pirates API', () => {
 
 
 });
-
-
-
-// GET` `/api/penguin/king?format=<simple|full>` should return the following `json` response:
-//     * If `format=full`, then return:
-//         ```json
-//         { 
-//             name: 'bernice',
-//             description: 'What a penguin!',
-//             age: 7
-//         }
-//         ```
