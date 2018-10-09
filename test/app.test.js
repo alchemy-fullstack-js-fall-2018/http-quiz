@@ -1,11 +1,11 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
-it.skip('gets two penguins', () => {
+it('gets two penguins', () => {
     const expected = ['bernice', 'bernard'];
     return request(app).get('/penguins')
         .then(res => {
-            expect(res.text).toEqual(expected);
+            expect(res.text).toEqual(JSON.stringify(expected));
         });
 });
 
