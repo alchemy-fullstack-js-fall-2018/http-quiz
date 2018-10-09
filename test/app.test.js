@@ -22,5 +22,13 @@ describe('penguins API', () => {
             });
     });
 
+    it('gets custom simple format queries', () => {
+        return request(app).get('/penguin/king?format=simple')
+            .then(res => {
+                expect(JSON.parse(res.text)).toEqual({ 
+                    name: 'bernice'
+                });
+            });
+    });
     
 });
