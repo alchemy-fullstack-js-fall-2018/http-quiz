@@ -30,5 +30,12 @@ describe('penguins API', () => {
                 });
             });
     });
+
+    it('returns deleted message with DELETE request', () => {
+        return request(app).delete('/mistake')
+            .then(res => {
+                expect(JSON.parse(res.text)).toEqual({ deleted: true });
+            });
+    });
     
 });
