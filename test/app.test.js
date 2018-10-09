@@ -37,5 +37,12 @@ describe('penguins API', () => {
                 expect(JSON.parse(res.text)).toEqual({ deleted: true });
             });
     });
+
+    it('returns 404 status code if any other response is sent', () => {
+        return request(app).post('/blowza')
+            .then(res => {
+                expect(res.statusCode).toEqual(404);
+            });
+    });
     
 });
